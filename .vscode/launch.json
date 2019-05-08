@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Obsluga1",
+            "request": "launch",
+            "mainClass": "Zadanie1a.Obsluga1"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Obsluga2",
             "request": "launch",
             "mainClass": "Zadanie1b.Obsluga2"
