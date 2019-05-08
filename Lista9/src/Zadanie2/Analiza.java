@@ -38,9 +38,9 @@ public class Analiza {
 	}
 	
 	public void wyswietl() {
-		System.out.println("Średnia sprawdze� trafionych: " + this.sprawdzenTrafionych*1.00 / this.liczbaTrafionych*1.00);
-		System.out.println("Średnia sprawdze� chybionych: " + this.sprawdzenChybionych*1.00 / this.liczbaChybionych*1.00);
-		System.out.println("Łaczna liczba sprawdze�: " + (this.sprawdzenChybionych + this.sprawdzenTrafionych) * 1.00 / 
+		System.out.println("Średnia sprawdzeń trafionych: " + this.sprawdzenTrafionych*1.00 / this.liczbaTrafionych*1.00);
+		System.out.println("Średnia sprawdzeń chybionych: " + this.sprawdzenChybionych*1.00 / this.liczbaChybionych*1.00);
+		System.out.println("Łaczna liczba sprawdzeń: " + (this.sprawdzenChybionych + this.sprawdzenTrafionych) * 1.00 / 
 				(this.liczbaChybionych + this.liczbaTrafionych) * 1.00);
 	}
 	

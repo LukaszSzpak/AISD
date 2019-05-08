@@ -15,7 +15,7 @@ public class HashLiniowy {
 	public void put(Element element) {
 		int hash = this.generujHash(element) % this.tablica.length;
 		
-		while(tablica[hash] != null) {
+		while(tablica[hash] != null && !tablica[hash].equals(element)) {
 			hash = (hash + 1) % this.tablica.length;
 		}
 		
@@ -25,15 +25,21 @@ public class HashLiniowy {
 	
 	public boolean containsKey(Element element) {
 		int hash = this.generujHash(element) % this.tablica.length;
+		int licznik = 0;
 		
 		while (this.tablica[hash] != null) {
 			
-			if (this.tablica[hash] == element) {
+			licznik++;
+			if (this.tablica[hash].equals(element)) {
+				anal.addLiczbaTrafoncyh(1);
+				anal.addSprawdzenTrafionych(licznik);
 				return true;
 			}
 			hash = (hash + 1) % this.tablica.length;
 		}
 		
+		anal.addLiczbaChybionych(1);
+		anal.addSprawdzenChybionych(licznik);
 		return false;
 	}
 	
