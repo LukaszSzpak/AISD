@@ -16,6 +16,6 @@ public class Element {
 	}
 	
 	public String toString() {
-		return "klucz: " + this.klucz + " wartoœæ: " + this.wartosc;
+		return "klucz: " + this.klucz + " wartoÅ›Ä‡: " + this.wartosc;
 	}
 }

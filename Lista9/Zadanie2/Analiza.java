@@ -38,9 +38,9 @@ public class Analiza {
 	}
 	
 	public void wyswietl() {
-		System.out.println("årednia sprawdzeÒ trafionych: " + this.sprawdzenTrafionych*1.00 / this.liczbaTrafionych*1.00);
-		System.out.println("årednia sprawdzeÒ chybionych: " + this.sprawdzenChybionych*1.00 / this.liczbaChybionych*1.00);
-		System.out.println("£aczna liczba sprawdzeÒ: " + (this.sprawdzenChybionych + this.sprawdzenTrafionych) * 1.00 / 
+		System.out.println("≈örednia sprawdzeÔøΩ trafionych: " + this.sprawdzenTrafionych*1.00 / this.liczbaTrafionych*1.00);
+		System.out.println("≈örednia sprawdzeÔøΩ chybionych: " + this.sprawdzenChybionych*1.00 / this.liczbaChybionych*1.00);
+		System.out.println("≈Åaczna liczba sprawdzeÔøΩ: " + (this.sprawdzenChybionych + this.sprawdzenTrafionych) * 1.00 / 
 				(this.liczbaChybionych + this.liczbaTrafionych) * 1.00);
 	}
 	
