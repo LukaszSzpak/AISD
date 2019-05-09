@@ -1,6 +1,7 @@
 public class Tree {
 
     private Element start;
+    private int iloscLisci;
 
     public Tree() {
         this.start = null;
@@ -141,5 +142,28 @@ public class Tree {
                 temp = temp.getRight();
             }
         }
+    }
+
+    /*
+        Metoda zliczająca ilość liści
+    */
+
+    public int iloscLisci() {
+        this.iloscLisci = 0;
+
+        return this.iloscLisci;
+    }
+
+    private void iloscLisci(Element element) {
+        if (element == null) {
+            return;
+        }
+
+        if (element.getLeft() == null && element.getRight() == null) {
+            this.iloscLisci++;
+        }
+
+        this.iloscLisci(element.getLeft();
+        this.iloscLisci(element.getRight());
     }
 }
