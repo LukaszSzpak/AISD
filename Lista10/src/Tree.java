@@ -2,6 +2,7 @@ public class Tree {
 
     private Element start;
     private int iloscLisci;
+    private int iloscWezlow;
 
     public Tree() {
         this.start = null;
@@ -144,9 +145,9 @@ public class Tree {
         }
     }
 
-    /*
-        Metoda zliczająca ilość liści
-    */
+        /*
+            Metoda zliczająca ilość liści
+        */
 
     public int iloscLisci() {
         this.iloscLisci = 0;
@@ -166,4 +167,27 @@ public class Tree {
         this.iloscLisci(element.getLeft());
         this.iloscLisci(element.getRight());
     }
+
+        /*
+            Metoda zliczająca ilość wezlow
+        */
+
+        public int iloscWezlow() {
+            this.iloscWezlow = 0;
+            this.iloscWezlow(this.start);
+            return this.iloscWezlow;
+        }
+    
+        private void iloscWezlow(Element element) {
+            if (element == null) {
+                return;
+            }
+    
+            if (element.getLeft() != null || element.getRight() != null) {
+                this.iloscWezlow++;
+            }
+    
+            this.iloscWezlow(element.getLeft());
+            this.iloscWezlow(element.getRight());
+        }
 }
