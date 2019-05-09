@@ -150,7 +150,7 @@ public class Tree {
 
     public int iloscLisci() {
         this.iloscLisci = 0;
-
+        this.iloscLisci(this.start);
         return this.iloscLisci;
     }
 
@@ -163,7 +163,7 @@ public class Tree {
             this.iloscLisci++;
         }
 
-        this.iloscLisci(element.getLeft();
+        this.iloscLisci(element.getLeft());
         this.iloscLisci(element.getRight());
     }
 }
