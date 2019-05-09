@@ -68,8 +68,8 @@ public class Testowanie {
 		test.anallin.zeruj();
 		test.analpod.zeruj();
 
-		System.out.println("\n\nTestowanie dla 0.8: ");
-		test = new Testowanie(1000, 0.8);
+		System.out.println("\n\nTestowanie dla 0.9: ");
+		test = new Testowanie(1000, 0.9);
 
 		test.losuj();
 		test.sprawdz();
