@@ -29,5 +29,6 @@ public class Obsluga1 {
         System.out.println("Klucz 8: " + BST.findKey(8));
         System.out.println("Ilość liści: " + BST.iloscLisci());
         System.out.println("Ilosc wezlow: " + BST.iloscWezlow());
+        System.out.println("Wysokosc drzewa: " + BST.getWysokoscDrzewa());
     }
 }

@@ -3,6 +3,7 @@ public class Tree {
     private Element start;
     private int iloscLisci;
     private int iloscWezlow;
+    private int wysokoscDrzewa;
 
     public Tree() {
         this.start = null;
@@ -190,4 +191,28 @@ public class Tree {
             this.iloscWezlow(element.getLeft());
             this.iloscWezlow(element.getRight());
         }
+
+        /*
+            Metoda obliczająca wysokość drzewa
+        */
+
+        public int getWysokoscDrzewa() {
+            this.wysokoscDrzewa = 0;
+            this.obliczWysokoscDrzewa(this.start, 0);
+            return this.wysokoscDrzewa;
+        }
+
+        private void obliczWysokoscDrzewa(Element element, int wysokosc) {
+            if (element == null) {
+                if (wysokosc-1 > this.wysokoscDrzewa) {
+                    this.wysokoscDrzewa = wysokosc-1;
+                }
+                return;
+            }
+
+            this.obliczWysokoscDrzewa(element.getLeft(), wysokosc+1);
+            this.obliczWysokoscDrzewa(element.getRight(), wysokosc+1);
+
+        }
+
 }
