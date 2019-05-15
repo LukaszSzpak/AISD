@@ -173,46 +173,70 @@ public class Tree {
             Metoda zliczająca ilość wezlow
         */
 
-        public int iloscWezlow() {
-            this.iloscWezlow = 0;
-            this.iloscWezlow(this.start);
-            return this.iloscWezlow;
+    public int iloscWezlow() {
+        this.iloscWezlow = 0;
+        this.iloscWezlow(this.start);
+        return this.iloscWezlow;
+    }
+
+    private void iloscWezlow(Element element) {
+        if (element == null) {
+            return;
         }
-    
-        private void iloscWezlow(Element element) {
-            if (element == null) {
-                return;
-            }
-    
-            if (element.getLeft() != null || element.getRight() != null) {
-                this.iloscWezlow++;
-            }
-    
-            this.iloscWezlow(element.getLeft());
-            this.iloscWezlow(element.getRight());
+
+        if (element.getLeft() != null || element.getRight() != null) {
+            this.iloscWezlow++;
         }
+
+        this.iloscWezlow(element.getLeft());
+        this.iloscWezlow(element.getRight());
+    }
 
         /*
             Metoda obliczająca wysokość drzewa
         */
 
-        public int getWysokoscDrzewa() {
-            this.wysokoscDrzewa = 0;
-            this.obliczWysokoscDrzewa(this.start, 0);
-            return this.wysokoscDrzewa;
-        }
+    public int getWysokoscDrzewa() {
+        this.wysokoscDrzewa = 0;
+        this.obliczWysokoscDrzewa(this.start, 0);
+        return this.wysokoscDrzewa;
+    }
 
-        private void obliczWysokoscDrzewa(Element element, int wysokosc) {
-            if (element == null) {
-                if (wysokosc-1 > this.wysokoscDrzewa) {
-                    this.wysokoscDrzewa = wysokosc-1;
-                }
-                return;
+    private void obliczWysokoscDrzewa(Element element, int wysokosc) {
+        if (element == null) {
+            if (wysokosc-1 > this.wysokoscDrzewa) {
+                this.wysokoscDrzewa = wysokosc-1;
             }
-
-            this.obliczWysokoscDrzewa(element.getLeft(), wysokosc+1);
-            this.obliczWysokoscDrzewa(element.getRight(), wysokosc+1);
-
+            return;
         }
+
+        this.obliczWysokoscDrzewa(element.getLeft(), wysokosc+1);
+        this.obliczWysokoscDrzewa(element.getRight(), wysokosc+1);
+
+    }
+
+        /*
+            Metoda wyświetlająca graficznie drzewo
+        */
+
+    public void printTree() {
+        this.printTree(this.start, 0);
+    }
+
+    private void printTree(Element element, int wysokosc) {
+        if (element == null) {
+            return;
+        }
+        
+        this.printTree(element.getRight(), wysokosc+1);
+
+        for(int i = 0; i < wysokosc; i++) {
+            System.out.print("  ");
+        }
+
+        System.out.println(element.getKey());
+
+        this.printTree(element.getLeft(), wysokosc+1);
+    }
 
 }

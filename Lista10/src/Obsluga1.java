@@ -30,5 +30,8 @@ public class Obsluga1 {
         System.out.println("Ilość liści: " + BST.iloscLisci());
         System.out.println("Ilosc wezlow: " + BST.iloscWezlow());
         System.out.println("Wysokosc drzewa: " + BST.getWysokoscDrzewa());
+
+        Gui gui = new Gui(BST);
+        gui.run();
     }
 }
