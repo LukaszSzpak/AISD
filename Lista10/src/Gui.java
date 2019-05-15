@@ -23,7 +23,9 @@ public class Gui {
                  case(2): 
                     this.znajdzNastepnika();
                     break;
-                 case(3): break;
+                 case(3): 
+                    this.znajdzPoprzednika();
+                    break;
                  case(4): break;
              }
 
@@ -36,6 +38,14 @@ public class Gui {
         int klucz = odczyt.nextInt();
 
         System.out.println("Następnik: " + this.BST.znajdzNastepnik(klucz));
+    }
+
+    public void znajdzPoprzednika() {
+        Scanner odczyt = new Scanner(System.in);
+        System.out.println("Podaj klucz do wyznaczenia poprzednika: ");
+        int klucz = odczyt.nextInt();
+
+        System.out.println("Poprzednik: " + this.BST.znajdzPoprzednik(klucz));
     }
     
 }

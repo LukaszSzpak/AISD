@@ -275,4 +275,36 @@ public class Tree {
             znajdzNastepnik(element.getRight(), klucz);
         }
 
+            /* 
+                metoda wyszukująca poprzednik
+            */
+
+        public int znajdzPoprzednik(int klucz) {
+            this.czyZnaleziony = false;
+            this.klucz= -1;
+            this.znajdzPoprzednik(this.start, klucz);
+
+            if (this.czyZnaleziony)
+                return this.klucz;
+            return -1;
+        }
+
+        private void znajdzPoprzednik(Element element, int klucz) {
+            if (element == null) {
+                return;
+            }
+
+            znajdzPoprzednik(element.getLeft(), klucz);
+
+            if (element.getKey() == klucz && !this.czyZnaleziony) {
+                this.czyZnaleziony = true;
+                return;
+            }
+    
+            if (!this.czyZnaleziony)
+                this.klucz = element.getKey();
+
+            znajdzPoprzednik(element.getRight(), klucz);
+        }
+
 }
