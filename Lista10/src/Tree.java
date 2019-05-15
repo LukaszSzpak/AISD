@@ -4,6 +4,8 @@ public class Tree {
     private int iloscLisci;
     private int iloscWezlow;
     private int wysokoscDrzewa;
+    private int klucz;
+    private boolean czyZnaleziony;
 
     public Tree() {
         this.start = null;
@@ -238,5 +240,39 @@ public class Tree {
 
         this.printTree(element.getLeft(), wysokosc+1);
     }
+
+        /*
+            Metoda wyszukująca następnik 
+        */
+    
+        public int znajdzNastepnik(int klucz) {
+
+            this.czyZnaleziony = false;
+            this.klucz= -1;
+            this.znajdzNastepnik(this.start, klucz);
+
+            if (this.czyZnaleziony)
+                return this.klucz;
+            return -1;
+        }
+
+        private void znajdzNastepnik(Element element, int klucz) {
+            if (element == null) {
+                return;
+            }
+
+            znajdzNastepnik(element.getLeft(), klucz);
+
+            if (this.klucz == klucz && !this.czyZnaleziony) {
+                this.czyZnaleziony = true;
+                this.klucz = element.getKey();
+                return;
+            }
+    
+            if (!this.czyZnaleziony)
+                this.klucz = element.getKey();
+
+            znajdzNastepnik(element.getRight(), klucz);
+        }
 
 }
