@@ -8,6 +8,12 @@ public class Element {
         this.key = key;
     }
 
+    public Element(Element element) {
+        this.left = element.left;
+        this.right = element.right;
+        this.key = element.key;
+    }
+
     //get'ery
 
     public Element getLeft() {

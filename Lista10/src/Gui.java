@@ -26,7 +26,9 @@ public class Gui {
                  case(3): 
                     this.znajdzPoprzednika();
                     break;
-                 case(4): break;
+                 case(4): 
+                    this.usun();
+                    break;
              }
 
         } while (this.wybranaOpcja != 0);
@@ -46,6 +48,14 @@ public class Gui {
         int klucz = odczyt.nextInt();
 
         System.out.println("Poprzednik: " + this.BST.znajdzPoprzednik(klucz));
+    }
+
+    public void usun() {
+        Scanner odczyt = new Scanner(System.in);
+        System.out.println("Podaj klucz do usuniecia: ");
+        int klucz = odczyt.nextInt();
+
+        System.out.println("Udało się usunąć: " + this.BST.delete(klucz));
     }
     
 }

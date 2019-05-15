@@ -307,4 +307,68 @@ public class Tree {
             znajdzPoprzednik(element.getRight(), klucz);
         }
 
+            /*
+                metoda usuwająca element z drzewa 
+            */
+        
+        public boolean delete(int klucz) {
+            Element temp = this.start;
+            Element parent = this.start;
+
+            while(temp.getKey() != klucz && temp != null) {
+
+                if (temp.getKey() < klucz) {
+                    parent = temp;
+                    temp = temp.getRight();
+                } else {
+                    parent = temp;
+                    temp = temp.getLeft();
+                }
+            }
+
+            if (temp == null) {
+                return false;
+            }
+
+            this.deleteElement(temp, parent);
+            return true;
+        }
+
+        private void deleteElement(Element element, Element parent) {
+
+            if(element.getLeft() == null && element.getRight() == null) {
+                if (parent.getLeft() == element) {
+                    parent.setLeft(null);
+                } else {
+                    parent.setRight(null);
+                }
+            } else if (element.getLeft() == null) {
+                if (parent.getLeft() == element) {
+                    parent.setLeft(element.getRight());
+                } else {
+                    parent.setRight(element.getRight());
+                }              
+            } else if (element.getRight() == null) {
+                if (parent.getLeft() == element) {
+                    parent.setLeft(element.getLeft());
+                } else {
+                    parent.setRight(element.getLeft());
+                }
+            } else {
+                element = zamienMin(element, element.getRight());
+            }
+
+        }
+
+        private Element zamienMin(Element delete, Element element) {
+            if (element.getLeft() != null) {
+                element.setLeft(zamienMin(delete, element.getLeft()));
+            } else {
+                delete.setKey(element.getKey());
+                element = element.getRight();
+            }
+
+            return element;
+        }
+
 }
