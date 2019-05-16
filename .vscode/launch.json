@@ -6,6 +6,19 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ObslugaLista11",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "mainClass": "ObslugaLista11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Obsluga1",
+            "request": "launch",
+            "mainClass": "Obsluga1"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Obsluga1",
             "request": "launch",
             "console": "integratedTerminal",
