@@ -9,6 +9,14 @@
             "name": "CodeLens (Launch) - ObslugaLista11",
             "request": "launch",
             "console": "integratedTerminal",
+            "mainClass": "Zadanie.ObslugaLista11",
+            "projectName": "Lista11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ObslugaLista11",
+            "request": "launch",
+            "console": "integratedTerminal",
             "mainClass": "ObslugaLista11"
         },
         {

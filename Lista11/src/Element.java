@@ -12,7 +12,7 @@ public class Element {
 
     public Element(int key) {
         this.key = key;
-        this.color = false;
+        this.color = true;
     }
 
     public Element(Element element) {
@@ -69,5 +69,27 @@ public class Element {
 
     public String toString() {
         return this.key + "-" + (String)(this.color? "(B)": "(R)");
+    }
+
+    public Element getGrandParent() {
+        if (this.parent == null || parent.parent == null) 
+            return null;
+
+        return parent.parent;
+    }
+
+    public Element getUncle(Element grandParent) {
+        if (grandParent == null) 
+            return null;
+
+        if (grandParent.left != null && grandParent.left == this.parent) {
+            return grandParent.right;
+
+        } else if (grandParent.right != null && grandParent.right == this.parent) {
+            return grandParent.left;
+
+        }
+
+        return null;
     }
 }
