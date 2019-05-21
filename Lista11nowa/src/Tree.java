@@ -7,6 +7,9 @@ public class Tree {
     private int iloscWezlow;
     private int wysokoscDrzewa;
 
+    private static final boolean BLACK = true;
+    private static final boolean RED = false;
+
     public Tree() {
         this.root = null;
         this.sentinel = new Element(0);
@@ -26,7 +29,7 @@ public class Tree {
         while(temp != this.sentinel) {
 
             if(temp.getKey() == key)
-                return;
+                break;
 
             if(key < temp.getKey()) {
                 this.parent = temp;
@@ -47,7 +50,7 @@ public class Tree {
             newEl.setParent(this.parent);
         }
 
-        newEl.setColor(false);
+        newEl.setColor(RED);
         newEl.setLeft(this.sentinel);
         newEl.setRight(this.sentinel);
 
@@ -60,50 +63,29 @@ public class Tree {
         Element parent = node.getParent();
 
         if (parent == null) {
-            // Case 1 - The current node is at the root of the tree.
-            System.out.println("gdzie ty kurwo 1");
-            node.setColor(true);
-            return;
-
-            
+            node.setColor(BLACK);
+            return;      
         }
 
-        
-
-        if (parent.getColor()) {
-            // Case 2 - The current node's parent is black, so property 4 (both
-            // children of every red node are black) is not invalidated.
-            System.out.println("gdzie ty kurwo 2");
+        if (parent.getColor() == BLACK)
             return;
-        }
 
         Element grandParent = node.getGrandParent();
         Element uncle = node.getUncle(grandParent);
+            
+        if (parent.getColor() == RED && uncle.getColor() == RED) {
 
-        if(uncle == null)
-            System.out.println("Jestem pustym wujkiem");
-
-        if (!parent.getColor() 
-        && uncle.getColor()) {
-            System.out.println("gdzie ty kurwo 3");
-            // Case 3 - If both the parent and the uncle are red, then both of
-            // them can be repainted black and the grandparent becomes
-            // red (to maintain property 5 (all paths from any given node to its
-            // leaf nodes contain the same number of black nodes)).
-            parent.setColor(true);
-            uncle.setColor(true);
+            parent.setColor(BLACK);
+            uncle.setColor(BLACK);
             if (grandParent != null) {
-                grandParent.setColor(false);
+                grandParent.setColor(RED);
                 balanceAfterInsert(grandParent);
             }
             return;
         }
 
-        if (!parent.getColor() && uncle.getColor()) {
-            System.out.println("gdzie ty kurwo 4");
-            // Case 4 - The parent is red but the uncle is black; also, the
-            // current node is the right child of parent, and parent in turn
-            // is the left child of its parent grandparent.
+        if (parent.getColor() == RED && uncle.getColor() == BLACK) {
+
             if (node == parent.getRight() && parent == grandParent.getLeft() ) {
                 // right-left
                 rotateLeft(parent);
@@ -124,13 +106,10 @@ public class Tree {
             }
         }
 
-        if (!parent.getColor() && uncle.getColor()){
-            // Case 5 - The parent is red but the uncle is black, the
-            // current node is the left child of parent, and parent is the
-            // left child of its parent G.
-            System.out.println("gdzie ty kurwo 5");
-            parent.setColor(true);
-            grandParent.setColor(false);
+        if (parent.getColor() == RED && uncle.getColor() == BLACK){
+
+            parent.setColor(BLACK);
+            grandParent.setColor(RED);
             if (node == parent.getLeft() && parent == grandParent.getLeft()){
                 // left-left
                 rotateRight(grandParent);
