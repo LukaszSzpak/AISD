@@ -1,3 +1,5 @@
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class Tree {
 
     private Element root;
@@ -193,6 +195,33 @@ public class Tree {
         }
     }
 
+    /* 
+        Metoda do wyswietlenia drzewa poziomami
+    */
+
+    public void printTreeLevels() {
+    	Element temp = root;
+        ConcurrentLinkedQueue<Element> list = new ConcurrentLinkedQueue<Element>();
+        
+    	while(temp.getRight() != this.sentinel || temp.getLeft() != this.sentinel || !list.isEmpty()) {
+    	if(!list.contains(temp))
+            list.add(temp);
+            
+    	if(temp.getLeft() != this.sentinel && !list.contains(temp.getLeft()))
+            list.add(temp.getLeft());
+        
+    	if(temp.getRight() != this.sentinel && !list.contains(temp.getRight()))
+            list.add(temp.getRight());
+
+        System.out.println(list.poll().toString());
+        
+    	if(list.isEmpty())
+            break;
+            
+    	temp = list.peek();
+    	
+        }
+    }
 
         /*
             Metoda IN-ORDER do wyświetlania drzewa
@@ -272,16 +301,45 @@ public class Tree {
     }
 
         /*
+            Metoda znajdująca element drzewa po kluczu
+        */
+
+    private Element findElementByKey(int key) {
+        
+        Element temp = this.root;
+        while(true) {
+            if(temp == this.sentinel || (temp.getLeft() == this.sentinel && temp.getRight() == this.sentinel))
+                return null;
+
+            if(temp.getKey() == key) {
+                return temp;
+            }
+
+            if(key < temp.getKey()) {
+                temp = temp.getLeft();
+            } else {
+                temp = temp.getRight();
+            }
+        }
+    }
+
+        /*
             Metoda zliczająca ilość liści
         */
 
-    public int iloscLisci() {
+    public int getIloscLisci() {
         this.iloscLisci = 0;
-        this.iloscLisci(this.root);
+        this.getIloscLisci(this.root);
         return this.iloscLisci;
     }
 
-    private void iloscLisci(Element element) {
+    private int iloscLisci(Element element) {
+        this.iloscLisci = 0;
+        this.getIloscLisci(element);
+        return this.iloscLisci;
+    }
+
+    private void getIloscLisci(Element element) {
         if (element == null || element.getKey() == 0) {
             return;
         }
@@ -290,21 +348,27 @@ public class Tree {
             this.iloscLisci++;
         }
 
-        this.iloscLisci(element.getLeft());
-        this.iloscLisci(element.getRight());
+        this.getIloscLisci(element.getLeft());
+        this.getIloscLisci(element.getRight());
     }
 
         /*
             Metoda zliczająca ilość wezlow
         */
 
-    public int iloscWezlow() {
+    public int getIloscWezlow() {
         this.iloscWezlow = 0;
-        this.iloscWezlow(this.root);
+        this.getIloscWezlow(this.root);
         return this.iloscWezlow;
     }
 
-    private void iloscWezlow(Element element) {
+    private int iloscWezlow(Element element) {
+        this.iloscWezlow = 0;
+        this.getIloscWezlow(element);
+        return this.iloscWezlow;
+    }
+
+    private void getIloscWezlow(Element element) {
         if (element == null || element.getKey() == 0) {
             return;
         }
@@ -313,8 +377,8 @@ public class Tree {
             this.iloscWezlow++;
         }
 
-        this.iloscWezlow(element.getLeft());
-        this.iloscWezlow(element.getRight());
+        this.getIloscWezlow(element.getLeft());
+        this.getIloscWezlow(element.getRight());
     }
 
         /*
@@ -324,6 +388,12 @@ public class Tree {
     public int getWysokoscDrzewa() {
         this.wysokoscDrzewa = 0;
         this.obliczWysokoscDrzewa(this.root, 0);
+        return this.wysokoscDrzewa;
+    }
+
+    private int getWysokoscDrzewa(Element element) {
+        this.wysokoscDrzewa = 0;
+        this.obliczWysokoscDrzewa(element, 0);
         return this.wysokoscDrzewa;
     }
 
@@ -338,6 +408,39 @@ public class Tree {
         this.obliczWysokoscDrzewa(element.getLeft(), wysokosc+1);
         this.obliczWysokoscDrzewa(element.getRight(), wysokosc+1);
 
+    }
+
+        /*
+            Metoda wyswietlajaca parametry drzewa
+        */
+
+    public void wyswietlParamteryDrzewa(Element elem) {
+        if (elem == null)
+            elem = this.root;
+        
+        System.out.println("Wysokosc drzewa: " + this.getWysokoscDrzewa(elem));
+        System.out.println("Wysokosc lewego poddrzewa: " + this.getWysokoscDrzewa(elem.getLeft()));
+        System.out.println("Wysokosc prawego poddrzewa: " + this.getWysokoscDrzewa(elem.getRight()));
+        System.out.println("Ilosc wezlow: " + this.iloscWezlow(elem));
+        System.out.println("Ilosc wezlow lewego poddrzewa: " + this.iloscWezlow(elem.getLeft()));
+        System.out.println("Ilosc wezlow prawego poddrzewa: " + this.iloscWezlow(elem.getRight()));
+        System.out.println("Ilosc lisci: " + this.iloscLisci(elem));
+        System.out.println("Ilosc lisci lewego podrzewa: " + this.iloscLisci(elem.getLeft()));
+        System.out.println("Ilosc lisci prawego podrzewa: " + this.iloscLisci(elem.getLeft()));
+    }
+
+        /*
+            Metoda wyswietlajaca parametry poddrzewa dla danego klucza elementu
+        */
+    
+    public void wyswietlParametryElementu(int key) {
+        Element elem = this.findElementByKey(key);
+
+        if (elem != null && elem != this.sentinel) {
+            this.wyswietlParamteryDrzewa(elem);
+        } else {
+            System.out.println("Brak wezła!");
+        }
     }
 
         /*
