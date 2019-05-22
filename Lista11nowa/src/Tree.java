@@ -10,10 +10,18 @@ public class Tree {
     private static final boolean BLACK = true;
     private static final boolean RED = false;
 
+        /*
+            Utowrzenie drzewa
+        */
+
     public Tree() {
         this.root = null;
         this.sentinel = new Element(0);
     }
+
+        /*
+            Dodanie elementu do drzewa
+        */
 
     public void add(int key) {
 
@@ -54,11 +62,15 @@ public class Tree {
         newEl.setLeft(this.sentinel);
         newEl.setRight(this.sentinel);
 
-        this.balanceAfterInsert(newEl);
+        this.CheckTree(newEl);
     }
 
+        /*
+            Sprawdzenie i naprawa drzewa
+        */
+
  
-    private void balanceAfterInsert(Element begin) {
+    private void CheckTree(Element begin) {
         Element node = begin;
         Element parent = node.getParent();
 
@@ -79,7 +91,7 @@ public class Tree {
             uncle.setColor(BLACK);
             if (grandParent != null) {
                 grandParent.setColor(RED);
-                balanceAfterInsert(grandParent);
+                this.CheckTree(grandParent);
             }
             return;
         }
@@ -120,6 +132,10 @@ public class Tree {
         }
     }
 
+        /* 
+            Rotacja w lewo
+        */
+
     private void rotateLeft(Element node) {
         Element parent = node.getParent();
         Element greater = node.getRight();
@@ -146,6 +162,9 @@ public class Tree {
             root.setParent(null);
         }
     }
+        /*
+            Rotacja w prawo
+        */
 
     protected void rotateRight(Element node) {
         Element parent = node.getParent();
@@ -185,7 +204,7 @@ public class Tree {
 
     private void inOrder(Element element) {
 
-        if(element == null) {
+        if(element == null || element.getKey() == 0) {
             return;
         }
 
@@ -203,7 +222,7 @@ public class Tree {
     }
 
     private void preOrder(Element element) {
-        if (element == null) {
+        if (element == null || element.getKey() == 0) {
             return;
         }
 
@@ -220,7 +239,7 @@ public class Tree {
     }
 
     private void postOrder(Element element) {
-        if (element == null) {
+        if (element == null || element.getKey() == 0) {
             return;
         }
 
@@ -263,11 +282,11 @@ public class Tree {
     }
 
     private void iloscLisci(Element element) {
-        if (element == null) {
+        if (element == null || element.getKey() == 0) {
             return;
         }
 
-        if (element.getLeft() == null && element.getRight() == null) {
+        if (element.getLeft() == this.sentinel && element.getRight() == this.sentinel) {
             this.iloscLisci++;
         }
 
@@ -286,11 +305,11 @@ public class Tree {
     }
 
     private void iloscWezlow(Element element) {
-        if (element == null) {
+        if (element == null || element.getKey() == 0) {
             return;
         }
 
-        if (element.getLeft() != null || element.getRight() != null) {
+        if (element.getLeft() != this.sentinel || element.getRight() != this.sentinel) {
             this.iloscWezlow++;
         }
 
@@ -309,7 +328,7 @@ public class Tree {
     }
 
     private void obliczWysokoscDrzewa(Element element, int wysokosc) {
-        if (element == null) {
+        if (element == null || element.getKey() == 0) {
             if (wysokosc-1 > this.wysokoscDrzewa) {
                 this.wysokoscDrzewa = wysokosc-1;
             }
