@@ -12,6 +12,7 @@ public class ObslugaLista11 {
         BST.add(3);
         BST.add(9);
         BST.add(21);
+        BST.add(82);
 
         Gui gui = new Gui(BST);
         gui.run();
