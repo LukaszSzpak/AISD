@@ -11,6 +11,10 @@ public class Tree {
         this.start = null;
     }
 
+    public Element getRoot() {
+        return this.start;
+    }
+
     public void add(int key) {
 
         if(this.start == null) {

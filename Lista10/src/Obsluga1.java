@@ -1,3 +1,5 @@
+import java.awt.EventQueue;
+
 public class Obsluga1 {
 
     public static void main(String [] args) {
@@ -12,6 +14,15 @@ public class Obsluga1 {
         BST.add(3);
         BST.add(9);
         BST.add(21);
+
+        Look look = new Look(BST.getRoot());
+
+        EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new MyFrame(look);
+			}
+		});
 
 
         System.out.println("Wyświetalnie inOrder: ");
