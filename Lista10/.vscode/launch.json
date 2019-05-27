@@ -4,6 +4,7 @@
             "type": "java",
             "name": "CodeLens (Launch) - Obsluga1",
             "request": "launch",
+            "console": "integratedTerminal",
             "mainClass": "Obsluga1",
             "projectName": "Lista10"
         }

@@ -340,6 +340,19 @@ public class Tree {
 
         private void deleteElement(Element element, Element parent) {
 
+            if(element == this.start) {
+                if(element.getLeft() == null && element.getRight() == null) {
+                    this.start = null;
+                } else if (element.getLeft() == null) {
+                    this.start = this.start.getRight();
+                } else if (element.getRight() == null) {
+                    this.start = this.start.getLeft();
+                } else {
+                    this.start = zamienMin(element, element.getRight());
+                }
+                return;
+            }
+
             if(element.getLeft() == null && element.getRight() == null) {
                 if (parent.getLeft() == element) {
                     parent.setLeft(null);
