@@ -1,3 +1,5 @@
+package ZAD1A;
+
 public class ZbiorRozlacznyTablica {
 
     private int[] Tab;

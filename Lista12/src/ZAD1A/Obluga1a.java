@@ -1,4 +1,4 @@
-package 1a;
+package ZAD1A;
 
 public class Obluga1a {
 
