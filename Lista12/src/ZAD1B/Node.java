@@ -1,3 +1,5 @@
+package ZAD1B;
+
 public class Node {
     private Node parent;
     private int value;

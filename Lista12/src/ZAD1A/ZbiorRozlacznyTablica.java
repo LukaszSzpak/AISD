@@ -16,6 +16,21 @@ public class ZbiorRozlacznyTablica {
         this.Tab[val1] = val2;
     }
 
+    public int find(int val) {
+        if(this.Tab[val] == 0) 
+            return -1;
+
+        int temp = val;
+
+        while(this.Tab[temp] != temp) {
+            temp = this.Tab[temp];
+        }
+
+        this.Tab[val] = temp;
+
+        return val;
+    }
+
     public void print() {
         System.out.println("\nWyswietlam drzewo: ");
 

@@ -1,3 +1,5 @@
+package ZAD1B;
+
 public class ObslugaLista12 {
 
     public static void main(String[] args) {

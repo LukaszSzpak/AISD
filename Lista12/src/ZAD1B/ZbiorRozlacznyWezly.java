@@ -1,3 +1,5 @@
+package ZAD1B;
+
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
