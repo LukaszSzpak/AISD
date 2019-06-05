@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ObslugaLista12",
+            "request": "launch",
+            "mainClass": "ZAD1B.ObslugaLista12",
+            "projectName": "Lista12"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Obsluga2",
             "request": "launch",
             "mainClass": "ZAD2.Obsluga2",

@@ -28,13 +28,22 @@ public class GrafSkierowany {
     public void printList() {
         System.out.println("\nWyswietlam liste grafu skierowanego: ");
         for(int i = 0; i < this.tab.length; i++) {
-            System.out.print(i + ": ");
-            for (int j = 0; j < this.tab.length; j++) {
-                    if (this.tab[i][j] != 0) {
-                        System.out.print(j + " ");
-                    }
+
+            int is = 0;
+
+            for (int j = 0; j < this.tab.length; j++)
+                is += this.tab[i][j];
+
+            if (is != 0) {
+                System.out.print(i + ": ");
+                for (int j = 0; j < this.tab.length; j++) {
+                        if (this.tab[i][j] != 0) {
+                            System.out.print(j + " ");
+                        }
+                }
+                System.out.println();
             }
-            System.out.println();
+            
         }
     }
 }
