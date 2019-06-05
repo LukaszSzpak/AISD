@@ -53,7 +53,7 @@ public class Graf {
     }
 
     public void BFS(int value) {
-        System.out.println("Wyswietlam BFS:");
+        System.out.println("\nWyswietlam BFS:");
 
         this.NodeQu.clear();
 
@@ -83,6 +83,29 @@ public class Graf {
             System.out.println(this.NodeQu.peek().toString());
             this.NodeQu.poll();
         }
+    }
+
+    public void DFS(int value) {
+        System.out.println("\nWyswietlam DFS: ");
+
+        for (int i = 0; i < this.NodeList.size(); i++) {
+            this.NodeList.get(i).setVisited(false);
+        }
+
+        this.DFS(this.findNode(value));
+    }
+
+    private void DFS(Node node) {
+
+        System.out.println(node.toString());
+        node.setVisited(true);
+
+        for (int i = 0; i < node.getListSize(); i++) {
+            if (node.getNode(i).getIsVisited() == false) {
+                this.DFS(node.getNode(i));
+            }
+        }
+
     }
 
 }

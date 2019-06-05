@@ -21,5 +21,6 @@ public class Obsluga1 {
 
         graf.print();
         graf.BFS(12);
+        graf.DFS(12);
     }
 }
