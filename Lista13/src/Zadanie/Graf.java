@@ -1,6 +1,7 @@
 package Zadanie;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -37,6 +38,10 @@ public class Graf {
         node2.addNode(node1);
     }
 
+        /*
+            Algorytm wyswietlania listy sąsiedztwa
+         */
+
     public void print() {
 
         for (int i = 0; i < this.NodeList.size(); i++) {
@@ -51,6 +56,9 @@ public class Graf {
             System.out.println();
         }
     }
+        /*
+            Algorytm przeszukiwania grafu wszerz
+         */
 
     public void BFS(int value) {
         System.out.println("\nWyswietlam BFS:");
@@ -80,10 +88,20 @@ public class Graf {
                 }
             }
 
+            System.out.println("Stan kolejki:");
+            Iterator<Node> it = this.NodeQu.iterator();
+            while (it.hasNext())
+                System.out.println(it.next().toString());
+            System.out.println("Koniec kolejki");
+
             System.out.println(this.NodeQu.peek().toString());
             this.NodeQu.poll();
         }
     }
+
+        /*
+            Algorytm przeszukiwnia grafu wgłąb
+         */
 
     public void DFS(int value) {
         System.out.println("\nWyswietlam DFS: ");

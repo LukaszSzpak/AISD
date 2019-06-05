@@ -4,9 +4,7 @@
     <list default="true" id="f6414b4f-d3df-4e06-9ac1-cf4ba652bb4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Zadanie/Graf.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Zadanie/Graf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Zadanie/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Zadanie/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zadanie/Graf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zadanie/Graf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zadanie/Obsluga1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zadanie/Obsluga1.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -26,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/Zadanie/Obsluga1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -34,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Zadanie/Graf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+            <state relative-caret-position="222">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -44,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/Zadanie/Node.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="93">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="e#739#740#0" expanded="true" />
                 <element signature="e#765#766#0" expanded="true" />
@@ -158,7 +156,7 @@
       <option name="presentableId" value="Default" />
       <updated>1559680800275</updated>
       <workItem from="1559680808163" duration="387000" />
-      <workItem from="1559753475846" duration="1531000" />
+      <workItem from="1559753475846" duration="2099000" />
     </task>
     <task id="LOCAL-00001" summary="add BFS">
       <created>1559754545713</created>
@@ -167,11 +165,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559754545713</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add DFS">
+      <created>1559755101812</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559755101812</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1918000" />
+    <option name="totallyTimeSpent" value="2486000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -186,7 +191,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16944024" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.115733735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -248,13 +253,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add BFS" />
-    <option name="LAST_COMMIT_MESSAGE" value="add BFS" />
+    <MESSAGE value="add DFS" />
+    <option name="LAST_COMMIT_MESSAGE" value="add DFS" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Zadanie/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#739#740#0" expanded="true" />
             <element signature="e#765#766#0" expanded="true" />
@@ -265,14 +271,14 @@
     <entry file="file://$PROJECT_DIR$/src/Zadanie/Obsluga1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Zadanie/Graf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+        <state relative-caret-position="222">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
         </state>
       </provider>
     </entry>
