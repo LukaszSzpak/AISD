@@ -23,7 +23,6 @@ public class Node {
     public int getListSize() {
         return this.Nodes.size();
     }
-
     
     public boolean getIsVisited() {
         return this.isVisited;
@@ -35,6 +34,10 @@ public class Node {
 
     public Node getNode(int number) {
         return this.Nodes.get(number);
+    }
+
+    public String toString() {
+        return this.value + " ";
     }
 
 }

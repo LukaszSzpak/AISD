@@ -53,31 +53,36 @@ public class Graf {
     }
 
     public void BFS(int value) {
-        Node node = this.findNode(value);
-
         System.out.println("Wyswietlam BFS:");
 
         this.NodeQu.clear();
 
-        this.BFS(node);
-
-        for(Node temp: this.NodeQu) {
-            System.out.println(temp.getValue());
+        for (int i = 0; i < this.NodeList.size(); i++) {
+            this.NodeList.get(i).setVisited(false);
         }
+
+        this.BFS(this.findNode(value));
+
     }
 
     private void BFS(Node node) {
 
-        if(!this.NodeQu.contains(node)) {
-            this.NodeQu.add(node);
-        }
+        this.NodeQu.add(node);
+        node.setVisited(true);
 
-        for (int i = 0; i < node.getListSize(); i++) {
-            Node temp = node.getNode(i);
+        while(!this.NodeQu.isEmpty()) {
+            Node temp = this.NodeQu.peek();
 
-            if(!this.NodeQu.contains(temp)) {
-                this.BFS(temp);
+            for (int i = 0; i < temp.getListSize(); i++) {
+                if (temp.getNode(i).getIsVisited() == false) {
+                    this.NodeQu.add(temp.getNode(i));
+                    temp.getNode(i).setVisited(true);
+                }
             }
+
+            System.out.println(this.NodeQu.peek().toString());
+            this.NodeQu.poll();
         }
     }
+
 }
