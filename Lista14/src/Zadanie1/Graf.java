@@ -10,6 +10,7 @@ public class Graf {
     private int vertices;
     private LinkedList<Edge>[] adjacencylist;
     private ArrayList<Integer> list;
+    private int [] parent;
 
         /*
             Utworzenie list potrzebnych do przechowywania grafu
@@ -19,6 +20,7 @@ public class Graf {
         this.vertices = vertices;
         adjacencylist = new LinkedList[vertices];
         this.list = new ArrayList<>();
+        this.parent = new int[vertices];
 
         for (int i = 0; i <vertices ; i++) {
             adjacencylist[i] = new LinkedList<>();
@@ -54,14 +56,15 @@ public class Graf {
         // ustawienie odleglosci na najwieksza mozliwa
         for (int i = 0; i <vertices ; i++) {
             distance[i] = Integer.MAX_VALUE;
+            parent[i] = -1;
         }
 
         // kolejka do przechowywania par
         PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(vertices, new Comp());
 
         // pierwszy ma zawsze 0 odległości
-        distance[0] = 0;
-        Pair<Integer, Integer> p0 = new Pair<>(distance[0],0);
+        distance[sourceVertex] = 0;
+        Pair<Integer, Integer> p0 = new Pair<>(distance[sourceVertex],sourceVertex);
         pq.offer(p0);
 
         while(!pq.isEmpty()){
@@ -93,6 +96,7 @@ public class Graf {
                             Pair<Integer, Integer> p = new Pair<>(newKey, destination);
                             pq.offer(p);
                             distance[destination] = newKey;
+                            this.parent[destination] = extractedVertex;
 
                         }
                     }
@@ -108,6 +112,14 @@ public class Graf {
         System.out.println("\nDlugosc ścieżki Dijkstra: ");
         System.out.println("Początek: " + sourceVertex + " Koniec: " + endDestination +
                 " Waga: " + distance[endDestination]);
+
+        System.out.println("Droga: ");
+
+        int next = endDestination;
+        while (next != -1) {
+            System.out.println(next);
+            next = parent[next];
+        }
     }
 
 

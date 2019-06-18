@@ -12,6 +12,6 @@ public class Obsluga1 {
         graf.addEdge(2, 3, 4);
         graf.addEdge(3, 4, 2);
         graf.addEdge(4, 5, 6);
-        graf.dijkstra(0, 4);
+        graf.dijkstra(2, 4);
     }
 }
